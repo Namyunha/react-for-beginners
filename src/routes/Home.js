@@ -9,7 +9,8 @@ function Home() {
       await fetch(
         `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
       )
-    ).json;
+    ).json();
+    console.log(json);
     setMovies(json.data.movies);
     setLoading(false);
   };
@@ -24,6 +25,7 @@ function Home() {
         <div>
           {movies.map((movie) => (
             <Movie
+              id={movie.id}
               coverImg={movie.medium_cover_image}
               title={movie.title_long}
               rating={movie.rating}
